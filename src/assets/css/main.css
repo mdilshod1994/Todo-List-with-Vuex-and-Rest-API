@@ -1,0 +1,290 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+input {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid rgb(172, 0, 172);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em Magenta;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.home-title {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to right, red, #00FF00, Magenta, #0000FF, White, red, Yellow, Cyan, Magenta, Silver, Olive, Lime);
+    background-size: 600%;
+    background-position: 0%;
+    z-index: -1;
+    animation: bgColors 15s infinite linear;
+}
+
+@keyframes bgColors {
+
+    0%,
+    100% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+}
+
+.todo-title {
+    text-align: center;
+    margin: 0 0 40px;
+}
+
+.tabs {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.tab {
+    position: relative;
+    border: 5px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    height: 37px;
+    padding: 0 15px;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    background: #fff;
+}
+
+.tab::after,
+.tab::before {
+    content: '';
+    position: absolute;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    background: #fff;
+    transition: all 0.4s ease-in;
+}
+
+.tab::before {
+    left: -10px;
+    top: -5%;
+}
+
+.tab::after {
+    right: -10px;
+    top: 100%;
+}
+
+.tab.active::before {
+    left: -10px;
+    top: 50%;
+}
+
+.tab.active::after {
+    right: -10px;
+    top: 50%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    border: 1px solid #dddddd;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+hr {
+    margin: 40px 0;
+}
+
+td:nth-child(1),
+th:nth-child(1) {
+    width: 60px;
+}
+
+td:nth-child(3),
+th:nth-child(3) {
+    width: 200px;
+}
+
+td:nth-child(4),
+th:nth-child(4) {
+    width: 150px;
+}
+
+td:nth-child(5),
+th:nth-child(5) {
+    width: 100px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 0, 255, 0.1);
+}
+
+td p.active,
+td h4.active {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.action {
+    display: flex;
+    gap: 10px;
+}
+
+.action button {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid rgb(172, 0, 172);
+    background: #fff;
+}
+
+.form {
+    display: flex;
+    gap: 20px;
+}
+
+.form button {
+    border: none;
+    background: rgba(255, 0, 255, 0.1);
+    padding: 0 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.input-container {
+    height: 45px;
+    width: 100%;
+    position: relative;
+}
+
+.get-in-touch__input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding: 0 20px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    font-size: 16px;
+    background: rgba(255, 0, 255, 0.1);
+    transition: all 0.2s;
+}
+
+.get-in-touch__input:focus {
+    border: 1px solid rgb(172, 0, 172);
+}
+
+.get-in-touch__input:focus+.get-in-touch__label,
+.filled {
+    top: -20px;
+    left: 0px;
+    font-size: 14px;
+}
+
+.get-in-touch__label {
+    position: absolute;
+    left: 15px;
+    top: 11px;
+    z-index: 1;
+    font-size: 18px;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.get-in-touch__label.filled {
+    top: -20px;
+    left: 0px;
+    font-size: 14px;
+}
+
+.edit-task {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #743ad5;
+    padding: 8px;
+}
